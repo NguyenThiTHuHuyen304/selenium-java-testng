@@ -1,5 +1,6 @@
 package webdriver;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -12,8 +13,10 @@ import org.testng.annotations.Test;
 
 public class Topic_07_Web_Element_PII {
 	WebDriver driver;
+	Random rand;
 	String projectPath = System.getProperty("user.dir");
 	String osName = System.getProperty("os.name");
+	String emailAddress;
 
 	By myAcc = By.xpath("//div[@class='footer']//a[text()= 'My Account']");
 	By emailTextBox = By.id("email");
@@ -29,8 +32,11 @@ public class Topic_07_Web_Element_PII {
 		} else {
 			System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
 		}
-
+		
+		rand = new Random();
 		driver = new FirefoxDriver();
+		
+		emailAddress = "automation" + rand.nextInt(9999) + "@gmail.com";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 	}
@@ -82,7 +88,7 @@ public class Topic_07_Web_Element_PII {
 	public void TC_04_incorrect() {
 		driver.get("http://live.techpanda.org/");
 		driver.findElement(myAcc).click();
-		driver.findElement(emailTextBox).sendKeys("automation@gmail.com");
+		driver.findElement(emailTextBox).sendKeys(emailAddress);
 		sleepInSecond(2);
 		driver.findElement(passwordTextBox).sendKeys("123123123");
 		sleepInSecond(2);
