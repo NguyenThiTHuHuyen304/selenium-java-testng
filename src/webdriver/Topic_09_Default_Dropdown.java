@@ -14,7 +14,6 @@ import org.testng.annotations.Test;
 
 public class Topic_09_Default_Dropdown {
 	WebDriver driver;
-	Random rand;
 	String projectPath = System.getProperty("user.dir");
 	String osName = System.getProperty("os.name");
 	String firtName, lastName, emailTextbox, companyName, password, day, month, year;
@@ -29,8 +28,7 @@ public class Topic_09_Default_Dropdown {
 		}
 
 		driver = new FirefoxDriver();
-		rand = new Random();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+ 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 
 		firtName = "Automation";
@@ -104,6 +102,10 @@ public class Topic_09_Default_Dropdown {
 		driver.findElement(By.id("Address_Company")).sendKeys(companyName);
 		new Select(driver.findElement(By.id("Address_CountryId"))).selectByVisibleText(countryName);
 		new Select(driver.findElement(By.id("Address_StateProvinceId"))).selectByVisibleText(provinceName);
+
+		Assert.assertFalse(new Select(driver.findElement(By.id("Address_CountryId"))).isMultiple());
+		Assert.assertFalse(new Select(driver.findElement(By.id("Address_StateProvinceId"))).isMultiple());
+
 		driver.findElement(By.id("Address_City")).sendKeys(CityName);
 		driver.findElement(By.id("Address_Address1")).sendKeys(addressName);
 		driver.findElement(By.id("Address_ZipPostalCode")).sendKeys(postalName);
