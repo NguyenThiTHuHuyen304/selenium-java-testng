@@ -57,7 +57,6 @@ public class Topic_12_Action_Part_I {
 	@Test
 	public void TC_03_Fahasa() {
 		driver.get("https://www.fahasa.com/");
-		sleepInSecond(30);
 		action.moveToElement(driver.findElement(By.cssSelector("span.icon_menu"))).perform();
 		action.moveToElement(driver.findElement(By.xpath("//a/span[text()='Sách Trong Nước']"))).perform();
 		driver.findElement(By.xpath("//div[@class = 'fhs_column_stretch']//a[text()='Quản Trị - Lãnh Đạo']")).click();
