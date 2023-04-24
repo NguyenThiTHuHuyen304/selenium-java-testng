@@ -45,7 +45,6 @@ public class Topic_12_Action_Part_I {
 	public void TC_02_Myntra() {
 		driver.get("https://www.myntra.com");
 		action.moveToElement(driver.findElement(By.xpath("//a[@class='desktop-main' and text() = 'Kids']"))).perform();
-		sleepInSecond(3);
 
 		driver.findElement(By.xpath("//a[@class='desktop-categoryName' and text() = 'Home & Bath']")).click();
 

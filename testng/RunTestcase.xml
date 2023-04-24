@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel="false" name="Banking">
+
+	<groups>
+		<run>
+			<include name="pay" />
+		</run>
+	</groups>
+
+	<test name="Run on Firefox browser">
+		<classes>
+			<class name="group.Payment_Address" />
+			<class name="group.Payment_Type" />
+			<class name="group.User" />
+		</classes>
+	</test>
+</suite>   
