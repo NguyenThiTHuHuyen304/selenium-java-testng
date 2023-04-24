@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="parameter" parallel="classes" thread-count="2">
+
+
+	<test name="Run on Firefox browser">
+		<parameter name="browser" value="firefox" />
+		<classes>
+			<class name="parameter.MultipleBrowser" />
+		</classes>
+	</test>
+	
+	<test name="Run on Chrome browser">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="parameter.MultipleBrowser" />
+		</classes>
+	</test>
+
+
+</suite>   
