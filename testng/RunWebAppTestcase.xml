@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel="false" name="Tiki - Automation Web App">
+
+	<listeners>
+		<listener class-name="listener.ReportNGListener" />
+	</listeners>
+
+	<test name="Run on Chrome browser">
+		<parameter name="browserName" value="chrome" />
+		<parameter name="browserVersion" value="112" />
+		<parameter name="platform" value="windows" />
+
+		<packages>
+			<package name="webApp" />
+		</packages>
+	</test>
+
+</suite>   
